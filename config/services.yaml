@@ -1,0 +1,35 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    _instanceof:
+        Poposki\Kernel\Application\Messenger\Command\CommandHandlerInterface:
+            public: true
+            tags:
+                - { name: messenger.message_handler, bus: messenger.bus.command }
+
+        Poposki\Kernel\Application\Messenger\Query\QueryHandlerInterface:
+            public: true
+            tags:
+                - { name: messenger.message_handler, bus: messenger.bus.query }
+
+    Poposki\:
+        resource: '../src/'
+        exclude:
+            - '../src/Kernel.php'
+
+    Poposki\Kernel\Application\Messenger\Command\CommandBus:
+        arguments:
+            - '@messenger.bus.command'
+
+    Poposki\Kernel\Application\Messenger\Query\QueryBus:
+        arguments:
+            - '@messenger.bus.query'
