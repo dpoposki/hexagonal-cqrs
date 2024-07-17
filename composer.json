@@ -1,6 +1,6 @@
 {
-    "type": "project",
-    "license": "proprietary",
+    "name": "dpoposki/hexagonal-cqrs",
+    "description": "Hexagonal Architecture with CQRS for Authentication Microservice\n",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
