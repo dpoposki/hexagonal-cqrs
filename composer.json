@@ -1,6 +1,8 @@
 {
-    "name": "dpoposki/hexagonal-cqrs",
-    "description": "Hexagonal Architecture with CQRS for Authentication Microservice\n",
+    "name": "poposki/hexagonal-cqrs",
+    "description": "Hexagonal Architecture with CQRS for Authentication Microservice",
+    "type": "project",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
